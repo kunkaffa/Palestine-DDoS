@@ -54,9 +54,10 @@ def display_header():
     for line in header_lines:
         print(line)
     # Versi dan URL
+    print(f"{Fore.CYAN}╔{'═' * 65}╗")
     print(f"{Fore.WHITE}{Style.BRIGHT}{' ' * 57}v.1.0")
     print(f"{Fore.CYAN}{Style.BRIGHT}{' ' * 16}https://kunkaffa@gmail.com")
-    print(f"{Fore.CYAN}|{'=' * 74}|")
+    print(f"{Fore.CYAN}╚{'═' * 65}╝")
 
 
 def countdown(t):
@@ -66,18 +67,18 @@ def countdown(t):
         if remaining_time > 1:
             stdout.flush()
             stdout.write(f"\r{Fore.BLUE}| [*]{Fore.RED} {remaining_time:.2f} {Fore.BLUE} Sec left{' ' * 26}|")
-            print(f"\r{Fore.BLUE}|[*]{Fore.RED} {remaining_time:.2f} {Fore.BLUE} Sec left {Fore.LIGHTBLUE_EX}Target acquired: {Fore.LIGHTWHITE_EX}"+str(url)+"")
+            print(f"\r💥 {Fore.BLUE}Sec left{Fore.RED} {remaining_time:.2f} {Fore.LIGHTBLUE_EX}Target acquired: {Fore.LIGHTWHITE_EX}"+str(url)+"")
         
         else:
             stdout.flush()
-            stdout.write(f"\r{Fore.RED}|▒[÷]▒ {Fore.YELLOW}BLACK-ARMY {Fore.CYAN} Attack has been completed|\n")
-            print(f"{Fore.CYAN}|{'=' * 74}|")
+            stdout.write(f"\r{Fore.RED}[÷] {Fore.CYAN} Attack has been completed|\n")
+            print(f"{Fore.BLUE}╔{'═' * 60}╗")
             return
 
 
 def get_user_input(prompt_message):
     print(f"{Fore.GREEN}|{' ' * 4}[?] {prompt_message.ljust(63)}|")
-    print(f"{Fore.GREEN}|{'=' * 74}|")
+    print(f"{Fore.GREEN}|{'═' * 60}|")
     return input(f"{Fore.YELLOW}{' ' * 4}> ").strip()
 
 
@@ -166,7 +167,7 @@ async def run_stress_test(url: str, duration: int, concurrency: int,
                 stdout.write(f"\r{Fore.BLUE}| [*]{Fore.RED} {remaining:6.2f} {Fore.BLUE} Sec left{' ' * 26}|")
                 stdout.flush()
                 # Tambahkan gaya progress seperti countdown asli
-                print(f"\r{Fore.BLUE}|[*]{Fore.RED} {remaining:6.2f} {Fore.BLUE} Sec left {Fore.LIGHTBLUE_EX}Target acquired: {Fore.LIGHTWHITE_EX}"+str(url)+"")
+                print(f"\r💥{Fore.BLUE} Sec left{Fore.RED} {remaining:6.2f} {Fore.LIGHTBLUE_EX}Target acquired: {Fore.LIGHTWHITE_EX}"+str(url)+"")
                 await asyncio.sleep(0.5)
 
         prog_task = asyncio.create_task(progress())
