@@ -259,10 +259,11 @@ def launch_attack(target_url, duration, concurrency=10, method='GET', rate_limit
 
 if __name__ == "__main__":
     display_header()
-
+    
+    print(f"{Fore.LIGHTBLUE_EX}┌[kunfay☮localhost]-(~/black'army@)")
     target_url = get_user_input("URL TARGET:   ")
     while not validators.url(target_url):
-        print(f"{Fore.RED}|    [ERROR] Invalid URL, try again.{' ' * 37}|")
+        print(f"{Fore.RED} [ERROR] Invalid URL, try again.")
         print(f"{Fore.LIGHTBLUE_EX}┌[kunfay☮localhost]-(~/black'army@)")
         target_url = get_user_input("└> URL TARGET:")
 
