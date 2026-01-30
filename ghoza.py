@@ -263,26 +263,26 @@ if __name__ == "__main__":
     target_url = get_user_input("URL TARGET:   ")
     while not validators.url(target_url):
         print(f"{Fore.RED}|    [ERROR] Invalid URL, try again.{' ' * 37}|")
-        print(f"{Fore.CYAN}|{'=' * 74}|")
-        target_url = get_user_input("URL TARGET:")
+        print(f"{Fore.LIGHTBLUE_EX}┌[kunfay☮localhost]-(~/black'army@)")
+        target_url = get_user_input("└> URL TARGET:")
 
     try:
-        attack_duration = int(get_user_input("Attack Duration (second):"))
+        attack_duration = int(get_user_input("└> Duration (second):"))
     except ValueError:
         attack_duration = 60
 
     try:
-        concurrency = int(get_user_input("Concurrency (e.g., 10):"))
+        concurrency = int(get_user_input("└> Concurrency (e.g., 10):"))
         if concurrency <= 0:
             concurrency = 10
     except ValueError:
         concurrency = 10
 
-    method = get_user_input("HTTP Method (GET/POST):").upper() or 'GET'
+    method = get_user_input("└> HTTP Method (GET/POST):").upper() or 'GET'
     if method not in {"GET", "POST", "HEAD", "PUT", "DELETE", "PATCH"}:
         method = 'GET'
 
-    rl = get_user_input("Rate limit req/s per worker (blank for none):")
+    rl = get_user_input("└> Rate limit req/s per worker (blank for none):")
     rate_limit = None
     if rl:
         try:
