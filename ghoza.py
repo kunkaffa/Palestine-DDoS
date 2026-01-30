@@ -77,9 +77,9 @@ def countdown(t):
 
 
 def get_user_input(prompt_message):
-    print(f"{Fore.GREEN}|{' ' * 4}[?] {prompt_message.ljust(63)}|")
-    print(f"{Fore.GREEN}|{'═' * 60}|")
-    return input(f"{Fore.YELLOW}{' ' * 4}> ").strip()
+    print(f"{Fore.BLUE}┌[kunfay☮localhost]-(~/black'army@)")
+    print(f"{Fore.BLUE}└> {prompt_message.ljust(63)}")
+    return input(f"{Fore.YELLOW}└> ").strip()
 
 
 def get_target(url: str) -> dict:
@@ -260,30 +260,30 @@ def launch_attack(target_url, duration, concurrency=10, method='GET', rate_limit
 if __name__ == "__main__":
     display_header()
     
-    print(f"{Fore.LIGHTBLUE_EX}┌[kunfay☮localhost]-(~/black'army@)")
-    target_url = get_user_input("URL TARGET:   ")
+    
+    target_url = get_user_input(" URL TARGET:   ")
     while not validators.url(target_url):
         print(f"{Fore.RED} [ERROR] Invalid URL, try again.")
-        print(f"{Fore.LIGHTBLUE_EX}┌[kunfay☮localhost]-(~/black'army@)")
-        target_url = get_user_input("└> URL TARGET:")
+        print(f"{Fore.LIGHTBLUE_EX}")
+        target_url = get_user_input("URL TARGET:")
 
     try:
-        attack_duration = int(get_user_input("└> Duration (second):"))
+        attack_duration = int(get_user_input("Duration (second):"))
     except ValueError:
         attack_duration = 60
 
     try:
-        concurrency = int(get_user_input("└> Concurrency (e.g., 10):"))
+        concurrency = int(get_user_input("Concurrency (e.g., 10):"))
         if concurrency <= 0:
             concurrency = 10
     except ValueError:
         concurrency = 10
 
-    method = get_user_input("└> HTTP Method (GET/POST):").upper() or 'GET'
+    method = get_user_input("HTTP Method (GET/POST):").upper() or 'GET'
     if method not in {"GET", "POST", "HEAD", "PUT", "DELETE", "PATCH"}:
         method = 'GET'
 
-    rl = get_user_input("└> Rate limit req/s per worker (blank for none):")
+    rl = get_user_input("Rate limit req/s per worker (blank for none):")
     rate_limit = None
     if rl:
         try:
