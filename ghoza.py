@@ -43,9 +43,13 @@ def log_attack_status(message, level='info', print_to_terminal=True):
 
 def display_header():
     header_lines = [
-
-    f"{Fore.YELLOW}  ██▒▒
-    f"{Fore.GREEN}
+    f"{Fore.BLUE}▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒",
+    f"{Fore.BLUE}▒▒█████══╗▒█═╗▒█═╗▒▒▒▒▒█═╗▒█████═╗╔════",                          f"{Fore.BLUE}▒▒█ ╔══█ ║▒█ ║▒█ ║▒▒▒▒▒▒█ ║▒█ ╔═══╝",                              f"{Fore.BLUE}▒▒█ ║▒▒█ ║▒█ ║▒█ ║▒▒▒▒▒▒█ ║▒█ ║",
+    f"{Fore.BLUE}▒▒█ ║▒▒█ ║▒█ ║▒█ ║▒▒▒▒▒▒█ ║▒█████═╗",
+    f"{Fore.BLUE}▒▒█████╝╔╝▒█ ║▒█ ║▒▒▒▒▒▒█ ║▒╚═══█ ║",
+    f"{Fore.BLUE}▒▒█ ╔═══╝▒▒█ ║▒██████═╗▒█ ║▒█████╔╝",
+    f"{Fore.BLUE}▒▒╚═╝▒▒▒▒▒▒╚═╝▒╚══════╝▒╚═╝╚════╝",
+    f"{Fore.BLUE}▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒",
     ]
     for line in header_lines:
         print(line)
