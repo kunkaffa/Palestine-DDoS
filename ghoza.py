@@ -200,49 +200,44 @@ def print_summary(url: str, duration: int, concurrency: int, method: str, rate_l
     p99 = sorted(latencies)[int(0.99 * len(latencies)) - 1] if latencies else 0.0
     rps = summary['total'] / duration if duration > 0 else 0
     # Gaya log penyelesaian seperti file asli
-    stdout.write(f"\r{Fore.RED}|▒[÷]▒ {Fore.YELLOW}BLACK-ARMY {Fore.CYAN} Attack has been completed|\n")
-    print(f"{Fore.CYAN}|{'=' * 74}|")
-    log_attack_status("Test selesai. Ringkasan:")
-    print(f"{Fore.CYAN}|{'=' * 74}|")
-    print(f"{Fore.GREEN}| Target     : {url.ljust(58)}|")
-    print(f"{Fore.GREEN}| Duration   : {str(duration)+'s':<58}|")
-    print(f"{Fore.GREEN}| Concurrency: {str(concurrency):<58}|")
-    print(f"{Fore.GREEN}| Method     : {method:<58}|")
-    print(f"{Fore.GREEN}| Rate limit : {('None' if not rate_limit else str(rate_limit)+' req/s'):<58}|")
-    print(f"{Fore.CYAN}|{'-' * 74}|")
-    print(f"{Fore.WHITE}| Requests   : {str(summary['total']):<58}|")
-    print(f"{Fore.WHITE}| 2xx/3xx    : {str(summary['ok']):<58}|")
-    print(f"{Fore.WHITE}| RPS (avg)  : {rps:<58.2f}|")
-    print(f"{Fore.WHITE}| Latency ms : avg={avg:.2f} p95={p95:.2f} p99={p99:.2f}{' ' * 20}|")
+    stdout.write(f"\r{Fore.GREEN}└> {Fore.YELLOW}Palestine {Fore.RED} •> {Fore.CYAN} Attack has been completed\n")          print(f"{Fore.YELLOW}╚{'═' * 45}╝")
+    log_attack_status("Test Finish. Summary:")
+    print(f"{Fore.YELLOW}└> Target     : {url.ljust(58)}")                                                              print(f"{Fore.YELLOW}└> Duration   : {str(duration)+'s':<58}")
+    print(f"{Fore.YELLOW}└> Concurrency: {str(concurrency):<58}")
+    print(f"{Fore.YELLOW}└> Method     : {method:<58}")
+    print(f"{Fore.YELLOW}└> Rate limit : {('None' if not rate_limit else str(rate_limit)+' req/s'):<58}")
+    print(f"{Fore.MAGENTA}{'••' * 15}")
+    print(f"{Fore.GREEN}└> Requests   : {str(summary['total']):<58}")
+    print(f"{Fore.GREEN}└> 2xx/3xx    : {str(summary['ok']):<58}")
+    print(f"{Fore.GREEN}└> RPS (avg)  : {rps:<58.2f}")
+    print(f"{Fore.GREEN}└> Latency ms : avg={avg:.2f} p95={p95:.2f} p99={p99:.2f}{' ' * 20}")
     if summary['by_status']:
-        print(f"{Fore.CYAN}|{'-' * 74}|")
+        print(f"{Fore.BLUE}{'••' * 15}")
         for code, cnt in summary['by_status'].most_common():
-            print(f"{Fore.YELLOW}| HTTP {code:<4}: {str(cnt):<58}|")
+            print(f"{Fore.CYAN}HTTP {code:<4}: {str(cnt):<58}")
     if summary['exceptions']:
-        print(f"{Fore.CYAN}|{'-' * 74}|")
+        print(f"{Fore.YELLOW}{'••' * 15}")
         for name, cnt in summary['exceptions'].most_common():
-            print(f"{Fore.RED}| {name:<10}: {str(cnt):<58}|")
-    print(f"{Fore.CYAN}|{'=' * 74}|")
-
+            print(f"{Fore.GREEN} {name:<10}: {str(cnt):<58}")
+    print(f"{Fore.BLUE}{'••' * 15}")
 
 def confirm_ethical_use(target_host: str) -> bool:
-    print(f"{Fore.YELLOW}| PERINGATAN: Gunakan hanya pada server milik sendiri dengan izin. |")
-    print(f"{Fore.YELLOW}| Target: {target_host.ljust(61)}|")
-    print(f"{Fore.YELLOW}| Ketik 'YA' untuk melanjutkan: {' ' * 35}|")
-    ans = input("    > ").strip().upper()
-    return ans == 'YA'
+    print(f"{Fore.GREEN}└> WARNING..!! do not attack government websites.")
+    print(f"{Fore.GREEN}└> Target: {target_host.ljust(61)}")
+    print(f"{Fore.GREEN}└> Type '12345' to continue: {' ' * 35}")
+    ans = input("└> ").strip().upper()
+    return ans == '12345'
 
 
 def launch_attack(target_url, duration, concurrency=10, method='GET', rate_limit=None):
     target = get_target(target_url)
     if not confirm_ethical_use(target['host']):
-        log_attack_status("Dibatalkan oleh pengguna demi keamanan.", level='warning')
+        log_attack_status("Canceled by user for security reasons.", level='warning')
         return
 
     url = f"{target['scheme']}://{target['host']}{target['uri']}"
     headers = build_default_headers(target['host'])
     log_attack_status(f"Launch attack {target['host']} for {duration} second(s), concurrency={concurrency}...")
-
     try:
         summary = asyncio.run(
             run_stress_test(
