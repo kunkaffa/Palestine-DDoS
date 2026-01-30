@@ -200,9 +200,11 @@ def print_summary(url: str, duration: int, concurrency: int, method: str, rate_l
     p99 = sorted(latencies)[int(0.99 * len(latencies)) - 1] if latencies else 0.0
     rps = summary['total'] / duration if duration > 0 else 0
     # Gaya log penyelesaian seperti file asli
-    stdout.write(f"\r{Fore.GREEN}└> {Fore.YELLOW}Palestine {Fore.RED} •> {Fore.CYAN} Attack has been completed\n")          print(f"{Fore.YELLOW}╚{'═' * 45}╝")
+    stdout.write(f"\r{Fore.GREEN}└> {Fore.YELLOW}Palestine {Fore.RED} •> {Fore.CYAN} Attack has been completed\n")
+    print(f"{Fore.YELLOW}╚{'═' * 45}╝")
     log_attack_status("Test Finish. Summary:")
-    print(f"{Fore.YELLOW}└> Target     : {url.ljust(58)}")                                                              print(f"{Fore.YELLOW}└> Duration   : {str(duration)+'s':<58}")
+    print(f"{Fore.YELLOW}└> Target     : {url.ljust(58)}")
+    print(f"{Fore.YELLOW}└> Duration   : {str(duration)+'s':<58}")
     print(f"{Fore.YELLOW}└> Concurrency: {str(concurrency):<58}")
     print(f"{Fore.YELLOW}└> Method     : {method:<58}")
     print(f"{Fore.YELLOW}└> Rate limit : {('None' if not rate_limit else str(rate_limit)+' req/s'):<58}")
