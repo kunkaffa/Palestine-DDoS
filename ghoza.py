@@ -77,9 +77,9 @@ def countdown(t):
 
 
 def get_user_input(prompt_message):
-    print(f"{Fore.BLUE}┌[kunfay☮localhost]-(~/black'army@)")
+    print(f"{Fore.BLUE}┌[kunfay☮localhost]-(~/black'army@)--")
     print(f"{Fore.BLUE}└> {prompt_message.ljust(63)}")
-    return input(f"{Fore.YELLOW}└> ").strip()
+    return input(f"{Fore.YELLOW}└----> ").strip()
 
 
 def get_target(url: str) -> dict:
