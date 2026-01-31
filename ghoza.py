@@ -64,7 +64,7 @@ def countdown(t):
             stdout.flush()
             stdout.write(f"\r{Fore.BLUE}| [*]{Fore.RED} {remaining_time:.2f} {Fore.BLUE} Sec left{' ' * 26}|")
             print(f"\r💥 {Fore.LIGHTBLUE_EX} {url} {Fore.BLUE}Sec left{Fore.RED} {remaining_time:.2f}")
-            print(f"\r☠️ {Fore.YELLOW} {url} {Fore.BLUE} {port}")
+            print(f"\r☠️ {Fore.YELLOW} {url} {Fore.BLUE} {rate_limit}")
         
         else:
             stdout.flush()
@@ -165,7 +165,7 @@ async def run_stress_test(url: str, duration: int, concurrency: int,
                 stdout.flush()
                 # Tambahkan gaya progress seperti countdown asli
                 print(f"\r💥 {Fore.LIGHTBLUE_EX} {url} {Fore.BLUE}Sec left{Fore.RED} {remaining:6.2f}")
-                print(f"\r☠️ {Fore.YELLOW} {url} {Fore.BLUE} {port}")
+                print(f"\r☠️ {Fore.YELLOW} {url} {Fore.GREEN} {rate_limit}")
                 await asyncio.sleep(0.5)
 
         prog_task = asyncio.create_task(progress())
@@ -225,9 +225,9 @@ def print_summary(url: str, duration: int, concurrency: int, method: str, rate_l
 def confirm_ethical_use(target_host: str) -> bool:
     print(f"{Fore.GREEN}└> WARNING..!! do not attack government websites.")
     print(f"{Fore.GREEN}└> Target: {target_host.ljust(61)}")
-    print(f"{Fore.GREEN}└> Type '12345' to continue: {' ' * 35}")
+    print(f"{Fore.GREEN}└> Type 'clickdown' to continue: {' ' * 35}")
     ans = input("└> ").strip().upper()
-    return ans == '12345'
+    return ans == 'clickdown'
 
 
 def launch_attack(target_url, duration, concurrency=10, method='GET', rate_limit=None):
@@ -262,7 +262,6 @@ if __name__ == "__main__":
     target_url = get_user_input(" URL TARGET:   ")
     while not validators.url(target_url):
         print(f"{Fore.RED} [ERROR] Invalid URL, try again.")
-        print(f"{Fore.LIGHTBLUE_EX}")
         target_url = get_user_input("URL TARGET:")
 
     try:
