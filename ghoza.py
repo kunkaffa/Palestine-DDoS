@@ -226,9 +226,9 @@ def print_summary(url: str, duration: int, concurrency: int, method: str, rate_l
 def confirm_ethical_use(target_host: str) -> bool:
     print(f"{Fore.GREEN}└> WARNING..!! do not attack government websites.")
     print(f"{Fore.GREEN}└> Target: {target_host.ljust(61)}")
-    print(f"{Fore.YELLOW}└> Type 'Pass' to continue: {' ' * 35}")
+    print(f"{Fore.YELLOW}└> Type 'P155' to continue: {' ' * 35}")
     ans = input("└> ").strip().upper()
-    return ans == 'Pass'
+    return ans == 'P155'
 
 
 def launch_attack(target_url, duration, concurrency=10, method='GET', rate_limit=None):
