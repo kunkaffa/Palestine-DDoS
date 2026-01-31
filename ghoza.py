@@ -30,15 +30,15 @@ def log_attack_status(message, level='info', print_to_terminal=True):
     if level == 'info':
         logging.info(message)
         if print_to_terminal:
-            print(f"{Fore.CYAN}|    [INFO] {message.ljust(63)}|")
+            print(f"{Fore.CYAN}|  [INFO] {message.ljust(63)}|")
     elif level == 'error':
         logging.error(message)
         if print_to_terminal:
-            print(f"{Fore.RED}|    [ERROR] {message.ljust(63)}|")
+            print(f"{Fore.RED}|  [ERROR] {message.ljust(63)}|")
     elif level == 'warning':
         logging.warning(message)
         if print_to_terminal:
-            print(f"{Fore.YELLOW}|    [WARNING] {message.ljust(63)}|")
+            print(f"{Fore.YELLOW}|  [WARNING] {message.ljust(63)}|")
 
 
 def display_header():
@@ -68,6 +68,7 @@ def countdown(t):
             stdout.flush()
             stdout.write(f"\r{Fore.BLUE}| [*]{Fore.RED} {remaining_time:.2f} {Fore.BLUE} Sec left{' ' * 26}|")
             print(f"\r💥 {Fore.BLUE}Sec left{Fore.RED} {remaining_time:.2f} {Fore.LIGHTBLUE_EX}Target acquired: {Fore.LIGHTWHITE_EX}"+str(url)+"")
+            print(f"\r☠️ {Fore.YELLOW} {concurrency} {Fore.BLUE}" +str(url)+ "")
         
         else:
             stdout.flush()
@@ -168,6 +169,7 @@ async def run_stress_test(url: str, duration: int, concurrency: int,
                 stdout.flush()
                 # Tambahkan gaya progress seperti countdown asli
                 print(f"\r💥{Fore.BLUE} Sec left{Fore.RED} {remaining:6.2f} {Fore.LIGHTBLUE_EX}Target acquired: {Fore.LIGHTWHITE_EX}"+str(url)+"")
+                print(f"\r☠️ {Fore.YELLOW} {concurrency} {Fore.BLUE}" +str(url)+ "")
                 await asyncio.sleep(0.5)
 
         prog_task = asyncio.create_task(progress())
