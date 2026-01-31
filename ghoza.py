@@ -44,11 +44,11 @@ def log_attack_status(message, level='info', print_to_terminal=True):
 def display_header():
     header_lines = [
     f"{Fore.RED}▒▒▒▒▒▒▒▒▒{Fore.WHITE}▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒",
-    f"{Fore.RED}▒▒█████══╗▒█═╗▒█═╗▒▒▒▒▒█═╗▒█████═╗╔════",                          f"{Fore.BLUE}▒▒█ ╔══█ ║▒█ ║▒█ ║▒▒▒▒▒▒█ ║▒█ ╔═══╝",                              f"{Fore.BLUE}▒▒█ ║▒▒█ ║▒█ ║▒█ ║▒▒▒▒▒▒█ ║▒█ ║",
+    f"{Fore.RED}▒▒█████══╗{Fore.WHITE}▒▒█═╗▒█═╗▒▒▒▒▒█═╗▒█████═╗╔════",                          f"{Fore.BLUE}▒▒█ ╔══█ ║▒█ ║▒█ ║▒▒▒▒▒▒█ ║▒█ ╔═══╝",                              f"{Fore.BLUE}▒▒█ ║▒▒█ ║▒█ ║▒█ ║▒▒▒▒▒▒█ ║▒█ ║",
     f"{Fore.RED}▒▒█ ║▒▒█ ║▒█{Fore.WHITE} ║▒█ ║▒▒▒▒▒▒█ ║▒█████═╗",
     f"{Fore.RED}▒▒█████╝╔╝▒█ ║▒█{Fore.WHITE} ║▒▒▒▒▒▒█ ║▒╚═══█ ║",
     f"{Fore.RED}▒▒█ ╔═══╝▒▒█{Fore.BLUE} ║▒██████═╗▒█ ║▒█████╔╝",
-    f"{Fore.RED}▒▒╚═╝▒▒▒▒▒▒╚═╝▒╚══════╝▒╚═╝╚════╝",
+    f"{Fore.RED}▒▒╚═╝▒▒▒▒▒▒{Fore.BLUE}╚═╝▒╚══════╝▒╚═╝╚════╝",
     f"{Fore.RED}▒▒▒▒▒▒▒▒▒{Fore.BLUE}▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒",
     ]
     for line in header_lines:
