@@ -163,7 +163,7 @@ async def run_stress_test(url: str, duration: int, concurrency: int,
         async def progress():
             while time.time() < end_ts:
                 remaining = max(0, end_ts - time.time())
-                stdout.write(f"\r{Fore.BLUE}| [*]{Fore.RED} {remaining:6.2f} {Fore.BLUE} Sec left{' ' * 26}|")
+                stdout.write(f"\r{Fore.BLUE}| [*]{Fore.RED} {remaining:6.2f} {Fore.BLUE} Sec left{' ' * 26}")
                 stdout.flush()
                 # Tambahkan gaya progress seperti countdown asli
                 print(f"\r💥{Fore.LIGHTBLUE_EX} {url} {Fore.BLUE}Sec left{Fore.WHITE}{remaining:6.2f}")
