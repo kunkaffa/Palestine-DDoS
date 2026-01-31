@@ -55,7 +55,7 @@ def display_header():
     ]
     for line in header_lines:
         print(line) 
-    print(f"{Fore.CYAN}╚{'═' * 70}╝")
+    print(f"{Fore.RED}╚{'═' * 20}{Fore.BLUE}{'═' * 50}╝")
 
 
 def countdown(t):
