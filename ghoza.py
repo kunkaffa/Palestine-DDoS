@@ -52,11 +52,7 @@ def display_header():
     f"{Fore.BLUE}▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒",
     ]
     for line in header_lines:
-        print(line)
-    # Versi dan URL
-    print(f"{Fore.CYAN}╔{'═' * 65}╗")
-    print(f"{Fore.WHITE}{Style.BRIGHT}{' ' * 57}v.1.0")
-    print(f"{Fore.CYAN}{Style.BRIGHT}{' ' * 16}https://kunkaffa@gmail.com")
+        print(line) 
     print(f"{Fore.CYAN}╚{'═' * 65}╝")
 
 
