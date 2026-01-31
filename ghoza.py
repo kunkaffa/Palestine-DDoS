@@ -62,9 +62,9 @@ def countdown(t):
         remaining_time = (until - datetime.datetime.now()).total_seconds()
         if remaining_time > 1:
             stdout.flush()
-            stdout.write(f"\r{Fore.BLUE}| [*]{Fore.RED} {remaining_time:.2f} {Fore.BLUE} Sec left{' ' * 26}|")
-            print(f"\r💥 {Fore.LIGHTBLUE_EX} {url} {Fore.BLUE}Sec left{Fore.RED} {remaining_time:.2f}")
-            print(f"\r☠️ {Fore.WHITE} {url} {Fore.BLUE} r_limit {rate_limit}")
+            stdout.write(f"\r{Fore.BLUE}[*]{Fore.RED} {remaining_time:.2f} {Fore.BLUE} Sec left{' ' * 26}|")
+            print(f"\r💥 {Fore.LIGHTBLUE_EX} {url} {Fore.BLUE}Sec left{Fore.WHITE} {remaining_time:.2f}")
+            print(f"\r☠️ {Fore.WHITE} {url} {Fore.BLUE}r_limit {Fore.RED} {rate_limit}")
             print(f"\r🚀 {Fore.YELLOW} {asyncio.run} {Fore.CYAN}methods {method}")
         else:
             stdout.flush()
